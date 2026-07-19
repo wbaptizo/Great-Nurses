@@ -21,6 +21,20 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            /* PREVENT COPYING - Disable text selection */
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        /* Allow text selection ONLY in admin panel (for editing) */
+        .admin-container,
+        .admin-container * {
+            user-select: text !important;
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
         }
 
         /* ========================================
@@ -504,6 +518,16 @@
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
             padding: 28px 32px 24px;
             display: none;
+            /* PREVENT COPYING - Disable text selection */
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        /* PREVENT RIGHT-CLICK CONTEXT MENU */
+        .exam-container {
+            -webkit-touch-callout: none;
         }
 
         .exam-header {
@@ -750,9 +774,82 @@
             .question-item { flex-direction: column; align-items: stretch; }
             .category-selector { justify-content: center; }
         }
+
+        /* ========================================
+                   COPY PROTECTION OVERLAY
+                ======================================== */
+        .copy-protection-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .copy-protection-overlay.show {
+            display: flex;
+        }
+
+        .copy-protection-overlay .popup {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 50px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .copy-protection-overlay .popup i {
+            font-size: 3rem;
+            color: #dc2626;
+            margin-bottom: 16px;
+        }
+
+        .copy-protection-overlay .popup h3 {
+            color: #0b1e33;
+            margin-bottom: 8px;
+        }
+
+        .copy-protection-overlay .popup p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .copy-protection-overlay .popup button {
+            margin-top: 16px;
+            padding: 10px 30px;
+            background: #1e3a5f;
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .copy-protection-overlay .popup button:hover {
+            background: #0b1e33;
+        }
     </style>
 </head>
 <body>
+
+    <!-- ============================================
+    COPY PROTECTION OVERLAY
+    ============================================ -->
+    <div class="copy-protection-overlay" id="copyOverlay">
+        <div class="popup">
+            <i class="fas fa-ban"></i>
+            <h3>⚠️ Copying Disabled</h3>
+            <p>Copying questions is not allowed during the exam. Please answer the questions honestly.</p>
+            <button onclick="closeCopyOverlay()">I Understand</button>
+        </div>
+    </div>
 
     <!-- ============================================
     LANDING PAGE
@@ -842,7 +939,7 @@
         <!-- Tab: Questions -->
         <div class="admin-section active" id="tab-questions">
             <div class="category-selector" id="adminCategorySelector">
-                <button class="active" data-cat="neurological" onclick="switchAdminCategory('neurological')">🧠 Neurological</button>
+                <button class="active" data-cat="medical" onclick="switchAdminCategory('medical')">🏥 Medical</button>
                 <button data-cat="surgical" onclick="switchAdminCategory('surgical')">🏥 Surgical</button>
                 <button data-cat="pharmacology" onclick="switchAdminCategory('pharmacology')">💊 Pharmacology</button>
             </div>
@@ -864,7 +961,7 @@
                 </div>
                 <div class="form-row">
                     <select id="newCategory">
-                        <option value="neurological">🧠 Neurological</option>
+                        <option value="medical">🏥 Medical</option>
                         <option value="surgical">🏥 Surgical</option>
                         <option value="pharmacology">💊 Pharmacology</option>
                     </select>
@@ -959,9 +1056,9 @@
         </div>
 
         <div class="exam-category">
-            <span id="examCategoryLabel"><i class="fas fa-brain"></i> NEUROLOGICAL</span>
+            <span id="examCategoryLabel"><i class="fas fa-hospital"></i> MEDICAL</span>
             <select id="categorySelector" onchange="switchCategory()">
-                <option value="neurological">🧠 Neurological</option>
+                <option value="medical">🏥 Medical</option>
                 <option value="surgical">🏥 Surgical</option>
                 <option value="pharmacology">💊 Pharmacology</option>
             </select>
@@ -1004,25 +1101,68 @@
     ============================================ -->
     <script>
         // ==========================================
+        // COPY PROTECTION
+        // ==========================================
+        // Disable right-click on exam
+        document.getElementById('examContainer').addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            document.getElementById('copyOverlay').classList.add('show');
+        });
+
+        // Disable keyboard shortcuts (Ctrl+C, Ctrl+V, Ctrl+U, etc.)
+        document.addEventListener('keydown', function(e) {
+            // Check if exam is visible
+            const exam = document.getElementById('examContainer');
+            if (exam.style.display !== 'block') return;
+
+            // Ctrl+C, Ctrl+V, Ctrl+U, Ctrl+P, Ctrl+S, F12
+            if (
+                (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'u' || e.key === 'p' || e.key === 's')) ||
+                (e.key === 'F12')
+            ) {
+                e.preventDefault();
+                document.getElementById('copyOverlay').classList.add('show');
+                return false;
+            }
+        });
+
+        // Disable PrintScreen
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'PrintScreen') {
+                navigator.clipboard.writeText('');
+                document.getElementById('copyOverlay').classList.add('show');
+            }
+        });
+
+        function closeCopyOverlay() {
+            document.getElementById('copyOverlay').classList.remove('show');
+        }
+
+        // ==========================================
         // DATA LAYER - Using LocalStorage
         // ==========================================
-        const CATEGORIES = ['neurological', 'surgical', 'pharmacology'];
+        const CATEGORIES = ['medical', 'surgical', 'pharmacology'];
         const CATEGORY_LABELS = {
-            neurological: '🧠 NEUROLOGICAL',
+            medical: '🏥 MEDICAL',
             surgical: '🏥 SURGICAL NURSING',
             pharmacology: '💊 PHARMACOLOGY'
         };
+        const CATEGORY_ICONS = {
+            medical: 'fa-hospital',
+            surgical: 'fa-scalpel',
+            pharmacology: 'fa-pills'
+        };
 
-        // Default questions (50 per category - we'll generate 50 for each)
+        // Default questions (50 per category)
         function getDefaultQuestions() {
             const baseQuestions = {
-                neurological: [],
+                medical: [],
                 surgical: [],
                 pharmacology: []
             };
 
-            // Generate 50 neurological questions
-            const neuroTopics = [
+            // Generate 50 medical questions
+            const medicalTopics = [
                 'Increased intracranial pressure', 'Head injury', 'Stroke',
                 'Meningitis', 'Seizures', 'Parkinson\'s disease', 'Alzheimer\'s disease',
                 'Spinal cord injury', 'Brain tumor', 'Cerebral edema',
@@ -1034,13 +1174,13 @@
             ];
 
             for (let i = 0; i < 50; i++) {
-                const topic = neuroTopics[i % neuroTopics.length];
+                const topic = medicalTopics[i % medicalTopics.length];
                 const a = `Intervention A for ${topic}`;
                 const b = `Intervention B for ${topic}`;
                 const c = `Intervention C for ${topic}`;
                 const d = `Intervention D for ${topic}`;
                 const correct = Math.floor(Math.random() * 4);
-                baseQuestions.neurological.push({
+                baseQuestions.medical.push({
                     id: i + 1,
                     text: `Which nursing intervention is most appropriate for a patient with ${topic}?`,
                     options: [a, b, c, d],
@@ -1141,7 +1281,7 @@
                 errorEl.classList.remove('show');
                 document.getElementById('landingPage').style.display = 'none';
                 document.getElementById('adminContainer').style.display = 'block';
-                renderAdminQuestions('neurological');
+                renderAdminQuestions('medical');
                 updateStats();
                 return;
             }
@@ -1152,7 +1292,7 @@
                 document.getElementById('landingPage').style.display = 'none';
                 document.getElementById('studentName').textContent = username;
                 document.getElementById('examContainer').style.display = 'block';
-                startExam('neurological');
+                startExam('medical');
                 return;
             }
 
@@ -1185,7 +1325,7 @@
         // ==========================================
         // ADMIN FUNCTIONS
         // ==========================================
-        let adminCurrentCategory = 'neurological';
+        let adminCurrentCategory = 'medical';
 
         function switchTab(tabName) {
             document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
@@ -1353,7 +1493,7 @@
         // EXAM FUNCTIONS
         // ==========================================
         let examState = {
-            category: 'neurological',
+            category: 'medical',
             currentIndex: 0,
             answers: {},
             flagged: {},
@@ -1440,7 +1580,7 @@
 
             // Category label
             document.getElementById('examCategoryLabel').innerHTML =
-                `<i class="fas fa-${examState.category === 'neurological' ? 'brain' : examState.category === 'surgical' ? 'hospital' : 'pills'}"></i> ${CATEGORY_LABELS[examState.category]}`;
+                `<i class="fas ${CATEGORY_ICONS[examState.category]}"></i> ${CATEGORY_LABELS[examState.category]}`;
         }
 
         // Option click
@@ -1547,7 +1687,18 @@
         // ==========================================
         // INIT
         // ==========================================
-        // Render default
+        // Convert any existing "neurological" data to "medical"
+        if (questionData.neurological && !questionData.medical) {
+            questionData.medical = questionData.neurological;
+            delete questionData.neurological;
+            saveQuestions(questionData);
+        } else if (questionData.neurological && questionData.medical) {
+            // Merge if both exist
+            questionData.medical = [...questionData.medical, ...questionData.neurological];
+            delete questionData.neurological;
+            saveQuestions(questionData);
+        }
+
         updateStats();
     </script>
 
