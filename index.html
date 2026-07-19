@@ -177,7 +177,7 @@
                    ADMIN DASHBOARD
                 ======================================== */
         .admin-container {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             background: #ffffff;
             border-radius: 24px;
@@ -308,6 +308,56 @@
             display: block;
         }
 
+        /* Category Management */
+        .category-management {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            align-items: center;
+        }
+
+        .category-management input {
+            padding: 10px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .category-management input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .category-management button {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .category-management .add-cat-btn {
+            background: #1e3a5f;
+            color: #fff;
+        }
+
+        .category-management .add-cat-btn:hover {
+            background: #0b1e33;
+        }
+
+        .category-management .del-cat-btn {
+            background: #dc2626;
+            color: #fff;
+        }
+
+        .category-management .del-cat-btn:hover {
+            background: #b91c1c;
+        }
+
         .category-selector {
             display: flex;
             gap: 10px;
@@ -336,6 +386,7 @@
             background: #e2e8f0;
         }
 
+        /* Question Form */
         .add-question-form {
             background: #f8fafc;
             border-radius: 14px;
@@ -401,6 +452,11 @@
             background: #fff;
         }
 
+        .add-question-form .form-row select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
         .add-question-form .form-row button {
             padding: 10px 28px;
             background: #1e3a5f;
@@ -416,6 +472,15 @@
             background: #0b1e33;
         }
 
+        .add-question-form .form-row button.delete-btn {
+            background: #dc2626;
+        }
+
+        .add-question-form .form-row button.delete-btn:hover {
+            background: #b91c1c;
+        }
+
+        /* Question List */
         .question-list {
             max-height: 400px;
             overflow-y: auto;
@@ -449,6 +514,7 @@
         .question-item .q-actions {
             display: flex;
             gap: 6px;
+            flex-wrap: wrap;
         }
 
         .question-item .q-actions button {
@@ -477,6 +543,122 @@
 
         .question-item .q-actions .del-btn:hover {
             background: #fecaca;
+        }
+
+        .question-item .q-actions .add-option-btn {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .question-item .q-actions .add-option-btn:hover {
+            background: #bbf7d0;
+        }
+
+        .question-item .q-actions .del-option-btn {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .question-item .q-actions .del-option-btn:hover {
+            background: #fecaca;
+        }
+
+        /* Time Settings */
+        .time-settings {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .time-settings h4 {
+            margin-bottom: 12px;
+            color: #0b1e33;
+        }
+
+        .time-settings .time-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .time-settings .time-row input {
+            padding: 10px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            width: 120px;
+            background: #fff;
+        }
+
+        .time-settings .time-row input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .time-settings .time-row button {
+            padding: 10px 28px;
+            background: #1e3a5f;
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .time-settings .time-row button:hover {
+            background: #0b1e33;
+        }
+
+        /* Student Table */
+        .admin-table-wrap {
+            overflow-x: auto;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .admin-table th {
+            text-align: left;
+            padding: 12px 14px;
+            background: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .admin-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #f0f2f5;
+            color: #1e293b;
+        }
+
+        .status-badge {
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-badge.passed {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-badge.failed {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .status-badge.pending {
+            background: #fef9c3;
+            color: #854d0e;
         }
 
         /* ========================================
@@ -703,9 +885,7 @@
             cursor: not-allowed;
         }
 
-        /* ========================================
-                   START WORK BUTTON
-                ======================================== */
+        /* Start Work Button */
         .start-work-container {
             text-align: center;
             padding: 30px 0 20px;
@@ -752,6 +932,22 @@
             font-weight: 600;
             color: #64748b;
             display: block;
+        }
+
+        .submit-exam-btn {
+            background: #16a34a;
+            color: #fff;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .submit-exam-btn:hover {
+            background: #15803d;
         }
 
         /* ========================================
@@ -920,13 +1116,17 @@
             .overlay .popup { padding: 30px 20px; margin: 20px; }
             .timer-display { font-size: 2.2rem; }
             .start-work-btn { padding: 14px 30px; font-size: 1rem; }
+            .category-management { flex-direction: column; }
+            .category-management input { width: 100%; }
+            .time-settings .time-row { flex-direction: column; }
+            .time-settings .time-row input { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <!-- ============================================
-    EXAM RULES OVERLAY
+    EXAM RULES OVERLAY (Simplified)
     ============================================ -->
     <div class="overlay" id="rulesOverlay">
         <div class="popup">
@@ -934,16 +1134,11 @@
             <h3>📋 Exam Rules</h3>
             <p>Please read the following rules carefully before starting your exam:</p>
             <ul class="rules-list">
-                <li><i class="fas fa-check-circle"></i> You have <strong>44 minutes and 50 seconds</strong> to complete the exam.</li>
+                <li><i class="fas fa-check-circle"></i> You have <strong id="rulesTimeDisplay">44 minutes and 50 seconds</strong> to complete the exam.</li>
                 <li><i class="fas fa-check-circle"></i> The timer starts only when you click <strong>"Start Work"</strong>.</li>
                 <li><i class="fas fa-check-circle"></i> Questions and options are <strong>randomized</strong> for each attempt.</li>
-                <li><i class="fas fa-exclamation-triangle"></i> <strong>No copying</strong> or using keyboard shortcuts (Ctrl+C, Ctrl+V).</li>
-                <li><i class="fas fa-exclamation-triangle"></i> <strong>No switching tabs</strong> or minimizing the browser.</li>
-                <li><i class="fas fa-exclamation-triangle"></i> <strong>No right-clicking</strong> during the exam.</li>
-                <li><i class="fas fa-exclamation-triangle"></i> If you switch tabs <strong>3 times</strong>, your exam will be auto-submitted.</li>
-                <li><i class="fas fa-exclamation-triangle"></i> If you try to copy <strong>3 times</strong>, your exam will be auto-submitted.</li>
-                <li><i class="fas fa-check-circle"></i> Your username can only be used <strong>once</strong>.</li>
                 <li><i class="fas fa-check-circle"></i> Results will be shown <strong>only after</strong> you submit the exam.</li>
+                <li><i class="fas fa-check-circle"></i> Your username can only be used <strong>once</strong>.</li>
             </ul>
             <button class="accept-btn" onclick="acceptRules()"><i class="fas fa-check"></i> I Understand & Accept</button>
         </div>
@@ -1082,7 +1277,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-icon"><i class="fas fa-folder"></i></div>
-                <div class="stat-number">3</div>
+                <div class="stat-number" id="totalCategories">0</div>
                 <div class="stat-label">Categories</div>
             </div>
             <div class="stat-card">
@@ -1104,25 +1299,31 @@
             <button class="admin-tab" data-tab="add" onclick="switchTab('add')">
                 <i class="fas fa-plus"></i> Add Question
             </button>
+            <button class="admin-tab" data-tab="categories" onclick="switchTab('categories')">
+                <i class="fas fa-folder"></i> Categories
+            </button>
+            <button class="admin-tab" data-tab="settings" onclick="switchTab('settings')">
+                <i class="fas fa-clock"></i> Settings
+            </button>
             <button class="admin-tab" data-tab="students" onclick="switchTab('students')">
                 <i class="fas fa-users"></i> Students
             </button>
         </div>
 
+        <!-- Tab: Questions -->
         <div class="admin-section active" id="tab-questions">
             <div class="category-selector" id="adminCategorySelector">
-                <button class="active" data-cat="medical" onclick="switchAdminCategory('medical')">🏥 Medical</button>
-                <button data-cat="surgical" onclick="switchAdminCategory('surgical')">🏥 Surgical</button>
-                <button data-cat="pharmacology" onclick="switchAdminCategory('pharmacology')">💊 Pharmacology</button>
+                <!-- Dynamic categories will be rendered here -->
             </div>
             <div class="question-list" id="adminQuestionList"></div>
         </div>
 
+        <!-- Tab: Add Question -->
         <div class="admin-section" id="tab-add">
             <div class="add-question-form">
                 <h4><i class="fas fa-plus-circle"></i> Add New Question</h4>
                 <textarea id="newQuestionText" placeholder="Enter the question text..."></textarea>
-                <div class="options-row">
+                <div class="options-row" id="optionsRow">
                     <input type="text" id="newOptA" placeholder="Option A" />
                     <input type="text" id="newOptB" placeholder="Option B" />
                     <input type="text" id="newOptC" placeholder="Option C" />
@@ -1130,9 +1331,7 @@
                 </div>
                 <div class="form-row">
                     <select id="newCategory">
-                        <option value="medical">🏥 Medical</option>
-                        <option value="surgical">🏥 Surgical</option>
-                        <option value="pharmacology">💊 Pharmacology</option>
+                        <!-- Dynamic categories will be rendered here -->
                     </select>
                     <select id="newCorrect">
                         <option value="0">A</option>
@@ -1156,6 +1355,48 @@
             </div>
         </div>
 
+        <!-- Tab: Categories -->
+        <div class="admin-section" id="tab-categories">
+            <div class="category-management">
+                <input type="text" id="newCategoryName" placeholder="Enter new category name..." />
+                <button class="add-cat-btn" onclick="addCategory()"><i class="fas fa-plus"></i> Add Category</button>
+            </div>
+            <div style="margin-top:12px;">
+                <h4><i class="fas fa-list"></i> Existing Categories</h4>
+                <div id="categoryList" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;"></div>
+            </div>
+        </div>
+
+        <!-- Tab: Settings -->
+        <div class="admin-section" id="tab-settings">
+            <div class="time-settings">
+                <h4><i class="fas fa-clock"></i> Exam Time Settings</h4>
+                <p style="color:#64748b; font-size:0.9rem; margin-bottom:12px;">Set the duration for the exam in minutes.</p>
+                <div class="time-row">
+                    <input type="number" id="examTimeMinutes" placeholder="Minutes" value="44" min="1" max="180" />
+                    <input type="number" id="examTimeSeconds" placeholder="Seconds" value="50" min="0" max="59" />
+                    <button onclick="updateExamTime()"><i class="fas fa-save"></i> Update Time</button>
+                </div>
+                <p style="color:#94a3b8; font-size:0.85rem; margin-top:8px;">
+                    Current time: <strong id="currentTimeDisplay">44 minutes 50 seconds</strong>
+                </p>
+            </div>
+
+            <div class="time-settings" style="margin-top:16px;">
+                <h4><i class="fas fa-info-circle"></i> System Settings</h4>
+                <p style="color:#64748b; font-size:0.9rem; margin-bottom:12px;">Manage exam system settings.</p>
+                <div class="time-row">
+                    <button onclick="resetAllData()" style="background:#dc2626; color:#fff; border:none; padding:10px 28px; border-radius:40px; font-weight:600; cursor:pointer;">
+                        <i class="fas fa-trash"></i> Reset All Data
+                    </button>
+                    <button onclick="exportQuestions()" style="background:#1e3a5f; color:#fff; border:none; padding:10px 28px; border-radius:40px; font-weight:600; cursor:pointer;">
+                        <i class="fas fa-download"></i> Export Questions
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Students -->
         <div class="admin-section" id="tab-students">
             <div class="admin-table-wrap">
                 <table class="admin-table">
@@ -1166,6 +1407,7 @@
                             <th>Status</th>
                             <th>Score</th>
                             <th>Date</th>
+                            <th>Category</th>
                         </tr>
                     </thead>
                     <tbody id="studentTableBody">
@@ -1194,13 +1436,10 @@
         <div class="exam-category">
             <span id="examCategoryLabel"><i class="fas fa-hospital"></i> MEDICAL</span>
             <select id="categorySelector" onchange="switchCategory()">
-                <option value="medical">🏥 Medical</option>
-                <option value="surgical">🏥 Surgical</option>
-                <option value="pharmacology">💊 Pharmacology</option>
+                <!-- Dynamic categories -->
             </select>
         </div>
 
-        <!-- START WORK BUTTON -->
         <div class="start-work-container" id="startWorkContainer">
             <div class="timer-display">
                 <span class="label">⏱️ Time Remaining</span>
@@ -1214,7 +1453,6 @@
             </p>
         </div>
 
-        <!-- EXAM CONTENT (hidden until Start Work) -->
         <div id="examContent" style="display:none;">
             <div class="question-text" id="questionText">Loading question...</div>
             <div class="options-list" id="optionsContainer">
@@ -1253,11 +1491,11 @@
         // ==========================================
         // DATA LAYER - Using LocalStorage
         // ==========================================
-        const CATEGORIES = ['medical', 'surgical', 'pharmacology'];
+        const DEFAULT_CATEGORIES = ['medical', 'surgical', 'pharmacology'];
         const CATEGORY_LABELS = {
-            medical: '🏥 MEDICAL',
-            surgical: '🏥 SURGICAL NURSING',
-            pharmacology: '💊 PHARMACOLOGY'
+            medical: '🏥 Medical',
+            surgical: '🏥 Surgical Nursing',
+            pharmacology: '💊 Pharmacology'
         };
         const CATEGORY_ICONS = {
             medical: 'fa-hospital',
@@ -1269,81 +1507,118 @@
         let usedUsernames = JSON.parse(localStorage.getItem('usedUsernames') || '[]');
         let studentResults = JSON.parse(localStorage.getItem('studentResults') || '[]');
 
+        // Get categories from localStorage
+        function getCategories() {
+            let cats = localStorage.getItem('examCategories');
+            if (cats) {
+                try {
+                    return JSON.parse(cats);
+                } catch (e) {}
+            }
+            // Initialize with defaults
+            localStorage.setItem('examCategories', JSON.stringify(DEFAULT_CATEGORIES));
+            return DEFAULT_CATEGORIES;
+        }
+
+        let categories = getCategories();
+
+        // Get exam time from localStorage
+        function getExamTime() {
+            let time = localStorage.getItem('examTime');
+            if (time) {
+                try {
+                    return JSON.parse(time);
+                } catch (e) {}
+            }
+            // Default: 44 minutes 50 seconds
+            const defaultTime = { minutes: 44, seconds: 50 };
+            localStorage.setItem('examTime', JSON.stringify(defaultTime));
+            return defaultTime;
+        }
+
+        let examTime = getExamTime();
+
         function getDefaultQuestions() {
-            const baseQuestions = { medical: [], surgical: [], pharmacology: [] };
+            const baseQuestions = {};
+            categories.forEach(cat => {
+                baseQuestions[cat] = [];
+            });
+
+            // Generate 50 medical questions
             const medicalTopics = [
                 'Increased intracranial pressure', 'Head injury', 'Stroke',
                 'Meningitis', 'Seizures', 'Parkinson\'s disease', 'Alzheimer\'s disease',
-                'Spinal cord injury', 'Brain tumor', 'Cerebral edema',
-                'Subdural hematoma', 'Epidural hematoma', 'Cerebral perfusion',
-                'Neurological assessment', 'Glasgow Coma Scale', 'Decorticate posturing',
-                'Decerebrate posturing', 'Cerebrovascular accident', 'Transient ischemic attack',
-                'Multiple sclerosis', 'Guillain-Barré syndrome', 'Myasthenia gravis',
-                'Huntington\'s disease', 'Amyotrophic lateral sclerosis', 'Bell\'s palsy'
+                'Spinal cord injury', 'Brain tumor', 'Cerebral edema'
             ];
             for (let i = 0; i < 50; i++) {
                 const topic = medicalTopics[i % medicalTopics.length];
-                const a = `Intervention A for ${topic}`;
-                const b = `Intervention B for ${topic}`;
-                const c = `Intervention C for ${topic}`;
-                const d = `Intervention D for ${topic}`;
                 baseQuestions.medical.push({
                     id: i + 1,
                     text: `Which nursing intervention is most appropriate for a patient with ${topic}?`,
-                    options: [a, b, c, d],
+                    options: [`Intervention A for ${topic}`, `Intervention B for ${topic}`, `Intervention C for ${topic}`,
+                        `Intervention D for ${topic}`
+                    ],
                     correct: Math.floor(Math.random() * 4)
                 });
             }
+
+            // Generate 50 surgical questions
             const surgicalTopics = [
                 'Preoperative care', 'Postoperative care', 'Wound healing',
                 'Infection control', 'Pain management', 'Fluid balance',
-                'Surgical asepsis', 'Incision care', 'Drain management',
-                'Suture removal', 'Wound dehiscence', 'Surgical complications',
-                'Deep vein thrombosis', 'Pulmonary embolism', 'Hemorrhage',
-                'Shock', 'Blood transfusion', 'Catheter care', 'Stoma care',
-                'Pressure ulcers', 'Nutritional support', 'Mobility after surgery'
+                'Surgical asepsis', 'Incision care', 'Drain management', 'Suture removal'
             ];
             for (let i = 0; i < 50; i++) {
                 const topic = surgicalTopics[i % surgicalTopics.length];
-                const a = `Action A for ${topic}`;
-                const b = `Action B for ${topic}`;
-                const c = `Action C for ${topic}`;
-                const d = `Action D for ${topic}`;
                 baseQuestions.surgical.push({
                     id: i + 1,
                     text: `What is the best nursing action for ${topic}?`,
-                    options: [a, b, c, d],
+                    options: [`Action A for ${topic}`, `Action B for ${topic}`, `Action C for ${topic}`,
+                        `Action D for ${topic}`
+                    ],
                     correct: Math.floor(Math.random() * 4)
                 });
             }
+
+            // Generate 50 pharmacology questions
             const pharmaTopics = [
                 'Analgesics', 'Antibiotics', 'Antihypertensives', 'Diuretics',
                 'Anticoagulants', 'Antiarrhythmics', 'Bronchodilators', 'Corticosteroids',
-                'Antidepressants', 'Antipsychotics', 'Antiepileptics', 'Antidiabetics',
-                'Antihistamines', 'Antacids', 'Laxatives', 'Sedatives',
-                'Stimulants', 'Vasodilators', 'Antiemetics', 'Antifungals',
-                'Antivirals', 'Immunosuppressants', 'Hormones', 'Vitamins'
+                'Antidepressants', 'Antipsychotics'
             ];
             for (let i = 0; i < 50; i++) {
                 const topic = pharmaTopics[i % pharmaTopics.length];
-                const a = `Medication A for ${topic}`;
-                const b = `Medication B for ${topic}`;
-                const c = `Medication C for ${topic}`;
-                const d = `Medication D for ${topic}`;
                 baseQuestions.pharmacology.push({
                     id: i + 1,
                     text: `Which medication is most commonly used as a ${topic.toLowerCase()}?`,
-                    options: [a, b, c, d],
+                    options: [`Medication A for ${topic}`, `Medication B for ${topic}`, `Medication C for ${topic}`,
+                        `Medication D for ${topic}`
+                    ],
                     correct: Math.floor(Math.random() * 4)
                 });
             }
+
             return baseQuestions;
         }
 
         function loadQuestions() {
             let data = localStorage.getItem('greatNursesQuestions');
             if (data) {
-                try { return JSON.parse(data); } catch (e) {}
+                try {
+                    const parsed = JSON.parse(data);
+                    // Ensure all categories exist
+                    let needsUpdate = false;
+                    categories.forEach(cat => {
+                        if (!parsed[cat]) {
+                            parsed[cat] = [];
+                            needsUpdate = true;
+                        }
+                    });
+                    if (needsUpdate) {
+                        localStorage.setItem('greatNursesQuestions', JSON.stringify(parsed));
+                    }
+                    return parsed;
+                } catch (e) {}
             }
             const defaults = getDefaultQuestions();
             localStorage.setItem('greatNursesQuestions', JSON.stringify(defaults));
@@ -1356,18 +1631,14 @@
 
         let questionData = loadQuestions();
 
-        if (questionData.neurological && !questionData.medical) {
-            questionData.medical = questionData.neurological;
-            delete questionData.neurological;
-            saveQuestions(questionData);
-        } else if (questionData.neurological && questionData.medical) {
-            questionData.medical = [...questionData.medical, ...questionData.neurological];
+        // Clean up old categories
+        if (questionData.neurological) {
             delete questionData.neurological;
             saveQuestions(questionData);
         }
 
         // ==========================================
-        // SHUFFLE FUNCTION (Fisher-Yates)
+        // SHUFFLE FUNCTION
         // ==========================================
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -1378,14 +1649,11 @@
         }
 
         function shuffleQuestionsAndOptions(questions) {
-            // Shuffle questions
             const shuffled = shuffleArray([...questions]);
-            // Shuffle options for each question
             shuffled.forEach(q => {
                 const optionMap = q.options.map((opt, idx) => ({ text: opt, originalIdx: idx }));
                 const shuffledOptions = shuffleArray(optionMap);
                 q.options = shuffledOptions.map(o => o.text);
-                // Update correct answer to match shuffled position
                 const correctText = q.options[q.correct];
                 q.correct = shuffledOptions.findIndex(o => o.text === correctText);
                 if (q.correct === -1) q.correct = 0;
@@ -1405,18 +1673,18 @@
             const password = document.getElementById('password').value.trim();
             const errorEl = document.getElementById('loginError');
 
-            // Admin login
             if (password === ADMIN_PASSWORD) {
                 errorEl.classList.remove('show');
                 document.getElementById('landingPage').style.display = 'none';
                 document.getElementById('adminContainer').style.display = 'block';
-                renderAdminQuestions('medical');
+                renderAdminCategories();
+                renderAdminQuestions(categories[0] || 'medical');
                 updateStats();
                 renderStudentTable();
+                updateTimeDisplay();
                 return;
             }
 
-            // Student login - check if username already used
             if (password === STUDENT_PASSWORD && username.length > 0) {
                 if (usedUsernames.includes(username)) {
                     errorEl.textContent = '❌ This username has already been used. Please use a different username.';
@@ -1429,11 +1697,9 @@
                 document.getElementById('landingPage').style.display = 'none';
                 document.getElementById('studentName').textContent = username;
 
-                // Store used username
                 usedUsernames.push(username);
                 localStorage.setItem('usedUsernames', JSON.stringify(usedUsernames));
 
-                // Show exam with rules
                 document.getElementById('examContainer').style.display = 'block';
                 showRules();
                 return;
@@ -1457,13 +1723,20 @@
         let rulesAccepted = false;
 
         function showRules() {
+            // Update rules with current time
+            const time = getExamTime();
+            const display = document.getElementById('rulesTimeDisplay');
+            if (time.seconds > 0) {
+                display.textContent = `${time.minutes} minutes and ${time.seconds} seconds`;
+            } else {
+                display.textContent = `${time.minutes} minutes`;
+            }
             document.getElementById('rulesOverlay').classList.add('show');
         }
 
         function acceptRules() {
             rulesAccepted = true;
             document.getElementById('rulesOverlay').classList.remove('show');
-            // Initialize exam with shuffled questions
             initializeExam();
         }
 
@@ -1480,14 +1753,15 @@
             document.getElementById('loginError').textContent = '❌ Invalid username or password. Please try again.';
             isExamActive = false;
             stopTimer();
-            // Reset exam state
             examState.started = false;
             examState.submitted = false;
             document.getElementById('startWorkContainer').style.display = 'block';
             document.getElementById('examContent').style.display = 'none';
             document.getElementById('startWorkBtn').disabled = false;
-            document.getElementById('startTimerDisplay').textContent = '44:50';
-            document.getElementById('timerDisplay').textContent = '44:50';
+            const time = getExamTime();
+            const timeStr = `${String(time.minutes).padStart(2, '0')}:${String(time.seconds).padStart(2, '0')}`;
+            document.getElementById('startTimerDisplay').textContent = timeStr;
+            document.getElementById('timerDisplay').textContent = timeStr;
         }
 
         function closeScoreAndLogout() {
@@ -1498,21 +1772,58 @@
         // ==========================================
         // ADMIN FUNCTIONS
         // ==========================================
-        let adminCurrentCategory = 'medical';
+        let adminCurrentCategory = categories[0] || 'medical';
 
         function switchTab(tabName) {
             document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
             document.querySelector(`.admin-tab[data-tab="${tabName}"]`).classList.add('active');
             document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
             document.getElementById(`tab-${tabName}`).classList.add('active');
-            if (tabName === 'questions') renderAdminQuestions(adminCurrentCategory);
+            if (tabName === 'questions') {
+                renderAdminCategories();
+                renderAdminQuestions(adminCurrentCategory);
+            }
+            if (tabName === 'categories') renderCategoryList();
             if (tabName === 'students') renderStudentTable();
+            if (tabName === 'settings') updateTimeDisplay();
+        }
+
+        function renderAdminCategories() {
+            const selector = document.getElementById('adminCategorySelector');
+            const newCatSelect = document.getElementById('newCategory');
+            const catSelect = document.getElementById('categorySelector');
+
+            // Update category selector
+            let html = '';
+            categories.forEach(cat => {
+                const label = CATEGORY_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+                const active = cat === adminCurrentCategory ? 'active' : '';
+                html += `<button class="${active}" data-cat="${cat}" onclick="switchAdminCategory('${cat}')">${label}</button>`;
+            });
+            selector.innerHTML = html;
+
+            // Update new category dropdown
+            let options = '';
+            categories.forEach(cat => {
+                const label = CATEGORY_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+                const selected = cat === adminCurrentCategory ? 'selected' : '';
+                options += `<option value="${cat}" ${selected}>${label}</option>`;
+            });
+            newCatSelect.innerHTML = options;
+
+            // Update exam category selector
+            let examOpts = '';
+            categories.forEach(cat => {
+                const label = CATEGORY_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+                const selected = cat === (examState.category || categories[0]) ? 'selected' : '';
+                examOpts += `<option value="${cat}" ${selected}>${label}</option>`;
+            });
+            catSelect.innerHTML = examOpts;
         }
 
         function switchAdminCategory(category) {
             adminCurrentCategory = category;
-            document.querySelectorAll('#adminCategorySelector button').forEach(b => b.classList.remove('active'));
-            document.querySelector(`#adminCategorySelector button[data-cat="${category}"]`).classList.add('active');
+            renderAdminCategories();
             renderAdminQuestions(category);
         }
 
@@ -1526,13 +1837,16 @@
             let html = '';
             qs.forEach((q, idx) => {
                 const letters = ['A', 'B', 'C', 'D'];
+                const optionsDisplay = q.options.map((opt, i) =>
+                    `${letters[i]}: ${opt}${i === q.correct ? ' ✓' : ''}`
+                ).join(' | ');
                 html += `
                     <div class="question-item">
                         <div class="q-text">
                             <span class="q-id">#${idx + 1}</span>
                             ${q.text}
-                            <span style="font-size:0.75rem; color:#2563eb; margin-left:8px;">
-                                ✓ ${letters[q.correct]}
+                            <span style="font-size:0.75rem; color:#64748b; display:block; margin-top:4px;">
+                                ${optionsDisplay}
                             </span>
                         </div>
                         <div class="q-actions">
@@ -1541,6 +1855,12 @@
                             </button>
                             <button class="del-btn" onclick="deleteQuestion('${category}', ${idx})">
                                 <i class="fas fa-trash"></i> Delete
+                            </button>
+                            <button class="add-option-btn" onclick="addOption('${category}', ${idx})">
+                                <i class="fas fa-plus"></i> Add Option
+                            </button>
+                            <button class="del-option-btn" onclick="deleteOption('${category}', ${idx})">
+                                <i class="fas fa-minus"></i> Remove Option
                             </button>
                         </div>
                     </div>
@@ -1575,6 +1895,7 @@
             saveQuestions(questionData);
             renderAdminQuestions(adminCurrentCategory);
             updateStats();
+
             document.getElementById('newQuestionText').value = '';
             document.getElementById('newOptA').value = '';
             document.getElementById('newOptB').value = '';
@@ -1587,19 +1908,17 @@
             const q = questionData[category][index];
             const newText = prompt('Edit question:', q.text);
             if (newText === null) return;
-            const newOptA = prompt('Option A:', q.options[0]);
-            if (newOptA === null) return;
-            const newOptB = prompt('Option B:', q.options[1]);
-            if (newOptB === null) return;
-            const newOptC = prompt('Option C:', q.options[2]);
-            if (newOptC === null) return;
-            const newOptD = prompt('Option D:', q.options[3]);
-            if (newOptD === null) return;
-            const newCorrect = prompt('Correct answer (0=A, 1=B, 2=C, 3=D):', q.correct);
+            const newOptions = [];
+            for (let i = 0; i < q.options.length; i++) {
+                const newOpt = prompt(`Option ${String.fromCharCode(65 + i)}:`, q.options[i]);
+                if (newOpt === null) return;
+                newOptions.push(newOpt);
+            }
+            const newCorrect = prompt(`Correct answer (0-${q.options.length - 1}):`, q.correct);
             if (newCorrect === null) return;
 
             q.text = newText;
-            q.options = [newOptA, newOptB, newOptC, newOptD];
+            q.options = newOptions;
             q.correct = parseInt(newCorrect);
 
             saveQuestions(questionData);
@@ -1614,6 +1933,40 @@
             saveQuestions(questionData);
             renderAdminQuestions(adminCurrentCategory);
             updateStats();
+        }
+
+        function addOption(category, index) {
+            const q = questionData[category][index];
+            const newOpt = prompt(`Add new option (will be appended):`);
+            if (newOpt === null || newOpt.trim() === '') return;
+            q.options.push(newOpt.trim());
+            saveQuestions(questionData);
+            renderAdminQuestions(adminCurrentCategory);
+            alert('Option added!');
+        }
+
+        function deleteOption(category, index) {
+            const q = questionData[category][index];
+            if (q.options.length <= 2) {
+                alert('Cannot remove option. Question must have at least 2 options.');
+                return;
+            }
+            const optIndex = prompt(`Enter option number to remove (0-${q.options.length - 1}):`);
+            if (optIndex === null) return;
+            const idx = parseInt(optIndex);
+            if (isNaN(idx) || idx < 0 || idx >= q.options.length) {
+                alert('Invalid option number.');
+                return;
+            }
+            q.options.splice(idx, 1);
+            if (q.correct === idx) {
+                q.correct = 0;
+            } else if (q.correct > idx) {
+                q.correct--;
+            }
+            saveQuestions(questionData);
+            renderAdminQuestions(adminCurrentCategory);
+            alert('Option removed!');
         }
 
         function bulkImport() {
@@ -1633,7 +1986,10 @@
                 const correct = parseInt(parts[5]);
                 const category = parts[6].toLowerCase().trim();
 
-                if (!CATEGORIES.includes(category)) continue;
+                if (!categories.includes(category)) {
+                    alert(`Category "${category}" does not exist. Please create it first.`);
+                    continue;
+                }
                 if (!questionData[category]) questionData[category] = [];
 
                 questionData[category].push({
@@ -1654,10 +2010,11 @@
 
         function updateStats() {
             let total = 0;
-            for (const cat of CATEGORIES) {
+            for (const cat of categories) {
                 total += (questionData[cat] || []).length;
             }
             document.getElementById('totalQuestions').textContent = total;
+            document.getElementById('totalCategories').textContent = categories.length;
             document.getElementById('totalStudents').textContent = usedUsernames.length;
             document.getElementById('totalExams').textContent = studentResults.length;
         }
@@ -1665,12 +2022,14 @@
         function renderStudentTable() {
             const tbody = document.getElementById('studentTableBody');
             if (studentResults.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#94a3b8; padding:20px;">No students have taken exams yet.</td></tr>`;
+                tbody.innerHTML =
+                    `<tr><td colspan="6" style="text-align:center; color:#94a3b8; padding:20px;">No students have taken exams yet.</td></tr>`;
                 return;
             }
             let html = '';
             studentResults.forEach((r, i) => {
                 const passed = r.score >= 60;
+                const catLabel = CATEGORY_LABELS[r.category] || r.category;
                 html += `
                     <tr>
                         <td>${i + 1}</td>
@@ -1678,10 +2037,151 @@
                         <td><span class="status-badge ${passed ? 'passed' : 'failed'}">${passed ? '✅ Passed' : '❌ Failed'}</span></td>
                         <td>${r.score}% (${r.correct}/${r.total})</td>
                         <td>${r.date}</td>
+                        <td>${catLabel}</td>
                     </tr>
                 `;
             });
             tbody.innerHTML = html;
+        }
+
+        // ==========================================
+        // CATEGORY MANAGEMENT
+        // ==========================================
+        function addCategory() {
+            const name = document.getElementById('newCategoryName').value.trim().toLowerCase();
+            if (!name) { alert('Please enter a category name.'); return; }
+            if (categories.includes(name)) { alert('Category already exists!'); return; }
+
+            categories.push(name);
+            localStorage.setItem('examCategories', JSON.stringify(categories));
+            CATEGORY_LABELS[name] = name.charAt(0).toUpperCase() + name.slice(1);
+            questionData[name] = [];
+            saveQuestions(questionData);
+
+            document.getElementById('newCategoryName').value = '';
+            renderCategoryList();
+            renderAdminCategories();
+            renderAdminQuestions(adminCurrentCategory);
+            updateStats();
+            alert(`Category "${name}" added successfully!`);
+        }
+
+        function deleteCategory(category) {
+            if (category === 'medical' || category === 'surgical' || category === 'pharmacology') {
+                alert('Cannot delete default categories.');
+                return;
+            }
+            if (!confirm(`Delete category "${category}" and all its questions?`)) return;
+
+            categories = categories.filter(c => c !== category);
+            localStorage.setItem('examCategories', JSON.stringify(categories));
+            delete CATEGORY_LABELS[category];
+            delete questionData[category];
+            saveQuestions(questionData);
+
+            if (adminCurrentCategory === category) {
+                adminCurrentCategory = categories[0] || 'medical';
+            }
+            renderCategoryList();
+            renderAdminCategories();
+            renderAdminQuestions(adminCurrentCategory);
+            updateStats();
+            alert(`Category "${category}" deleted.`);
+        }
+
+        function renderCategoryList() {
+            const container = document.getElementById('categoryList');
+            if (categories.length === 0) {
+                container.innerHTML = `<p style="color:#64748b;">No categories created yet.</p>`;
+                return;
+            }
+            let html = '';
+            categories.forEach(cat => {
+                const label = CATEGORY_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+                const isDefault = ['medical', 'surgical', 'pharmacology'].includes(cat);
+                html += `
+                    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:8px 16px; display:flex; align-items:center; gap:10px;">
+                        <span><i class="fas ${CATEGORY_ICONS[cat] || 'fa-folder'}"></i> ${label}</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">(${(questionData[cat] || []).length} questions)</span>
+                        ${!isDefault ? `<button onclick="deleteCategory('${cat}')" style="background:#fef2f2; border:none; color:#991b1b; border-radius:20px; padding:2px 10px; cursor:pointer; font-size:0.75rem;"><i class="fas fa-trash"></i></button>` : ''}
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // ==========================================
+        // TIME SETTINGS
+        // ==========================================
+        function updateExamTime() {
+            const mins = parseInt(document.getElementById('examTimeMinutes').value);
+            const secs = parseInt(document.getElementById('examTimeSeconds').value);
+
+            if (isNaN(mins) || mins < 1) { alert('Please enter a valid number of minutes (min 1).'); return; }
+            if (isNaN(secs) || secs < 0 || secs > 59) { alert('Please enter valid seconds (0-59).'); return; }
+
+            examTime = { minutes: mins, seconds: secs };
+            localStorage.setItem('examTime', JSON.stringify(examTime));
+            updateTimeDisplay();
+            alert(`Exam time updated to ${mins} minutes ${secs} seconds!`);
+        }
+
+        function updateTimeDisplay() {
+            const time = getExamTime();
+            document.getElementById('currentTimeDisplay').textContent =
+                `${time.minutes} minutes ${time.seconds} seconds`;
+            document.getElementById('examTimeMinutes').value = time.minutes;
+            document.getElementById('examTimeSeconds').value = time.seconds;
+
+            const timeStr = `${String(time.minutes).padStart(2, '0')}:${String(time.seconds).padStart(2, '0')}`;
+            document.getElementById('startTimerDisplay').textContent = timeStr;
+            document.getElementById('timerDisplay').textContent = timeStr;
+        }
+
+        function resetAllData() {
+            if (!confirm('⚠️ This will delete ALL data including questions, student results, and used usernames. Are you sure?')) return;
+            if (!confirm('⚠️ FINAL WARNING: This action cannot be undone! Are you absolutely sure?')) return;
+
+            localStorage.removeItem('greatNursesQuestions');
+            localStorage.removeItem('usedUsernames');
+            localStorage.removeItem('studentResults');
+            localStorage.removeItem('examCategories');
+            localStorage.removeItem('examTime');
+
+            usedUsernames = [];
+            studentResults = [];
+            categories = DEFAULT_CATEGORIES;
+            examTime = { minutes: 44, seconds: 50 };
+
+            localStorage.setItem('examCategories', JSON.stringify(categories));
+            localStorage.setItem('examTime', JSON.stringify(examTime));
+
+            questionData = getDefaultQuestions();
+            saveQuestions(questionData);
+
+            renderAdminCategories();
+            renderAdminQuestions(categories[0] || 'medical');
+            renderCategoryList();
+            renderStudentTable();
+            updateStats();
+            updateTimeDisplay();
+            alert('All data has been reset!');
+        }
+
+        function exportQuestions() {
+            const data = {
+                categories: categories,
+                questions: questionData,
+                exportedAt: new Date().toISOString()
+            };
+            const json = JSON.stringify(data, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `questions_export_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
         }
 
         // ==========================================
@@ -1693,30 +2193,32 @@
         let screenBlurCount = 0;
 
         let examState = {
-            category: 'medical',
+            category: categories[0] || 'medical',
             currentIndex: 0,
             answers: {},
             flagged: {},
             timerInterval: null,
-            seconds: 2690,
+            seconds: 0,
             submitted: false,
             started: false,
             shuffledQuestions: [],
-            username: ''
+            username: '',
+            resultsShown: false
         };
 
         function initializeExam() {
-            const category = document.getElementById('categorySelector').value;
+            const category = document.getElementById('categorySelector').value || categories[0] || 'medical';
             examState.category = category;
             examState.currentIndex = 0;
             examState.answers = {};
             examState.flagged = {};
-            examState.seconds = 2690;
+            const time = getExamTime();
+            examState.seconds = time.minutes * 60 + time.seconds;
             examState.submitted = false;
             examState.started = false;
             examState.username = document.getElementById('studentName').textContent;
+            examState.resultsShown = false;
 
-            // Shuffle questions for this attempt
             const originalQs = questionData[category] || [];
             examState.shuffledQuestions = shuffleQuestionsAndOptions(originalQs);
 
@@ -1724,14 +2226,13 @@
             document.getElementById('totalQ').textContent = examState.shuffledQuestions.length;
             document.getElementById('totalQ2').textContent = examState.shuffledQuestions.length;
 
-            // Show start work button, hide exam content
             document.getElementById('startWorkContainer').style.display = 'block';
             document.getElementById('examContent').style.display = 'none';
             document.getElementById('startWorkBtn').disabled = false;
-            document.getElementById('startTimerDisplay').textContent = '44:50';
-            document.getElementById('timerDisplay').textContent = '44:50';
+            const timeStr = `${String(time.minutes).padStart(2, '0')}:${String(time.seconds).padStart(2, '0')}`;
+            document.getElementById('startTimerDisplay').textContent = timeStr;
+            document.getElementById('timerDisplay').textContent = timeStr;
 
-            // Reset protection counters
             warningCount = 0;
             tabSwitchCount = 0;
             screenBlurCount = 0;
@@ -1747,7 +2248,6 @@
             document.getElementById('startWorkContainer').style.display = 'none';
             document.getElementById('examContent').style.display = 'block';
 
-            // Start timer
             startTimer();
             renderExamQuestion();
         }
@@ -1787,16 +2287,23 @@
             const q = qs[examState.currentIndex];
             document.getElementById('questionText').textContent = q.text;
 
-            const letters = ['A', 'B', 'C', 'D'];
+            const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
             const optionDivs = document.querySelectorAll('.option-item');
-            q.options.forEach((opt, i) => {
-                optionDivs[i].innerHTML = `<span class="letter">${letters[i]}.</span> ${opt}`;
-                optionDivs[i].dataset.index = i;
-                optionDivs[i].classList.remove('selected');
-                if (examState.answers[examState.currentIndex] === i) {
-                    optionDivs[i].classList.add('selected');
+
+            // Show/hide option items based on number of options
+            for (let i = 0; i < optionDivs.length; i++) {
+                if (i < q.options.length) {
+                    optionDivs[i].style.display = 'flex';
+                    optionDivs[i].innerHTML = `<span class="letter">${letters[i]}.</span> ${q.options[i]}`;
+                    optionDivs[i].dataset.index = i;
+                    optionDivs[i].classList.remove('selected');
+                    if (examState.answers[examState.currentIndex] === i) {
+                        optionDivs[i].classList.add('selected');
+                    }
+                } else {
+                    optionDivs[i].style.display = 'none';
                 }
-            });
+            }
 
             document.getElementById('currentQ').textContent = examState.currentIndex + 1;
             document.getElementById('qCounter').textContent = examState.currentIndex + 1;
@@ -1817,11 +2324,12 @@
             document.getElementById('prevBtn').disabled = examState.currentIndex === 0;
             document.getElementById('nextBtn').disabled = examState.currentIndex === qs.length - 1;
 
+            const catLabel = CATEGORY_LABELS[examState.category] || examState.category;
+            const icon = CATEGORY_ICONS[examState.category] || 'fa-folder';
             document.getElementById('examCategoryLabel').innerHTML =
-                `<i class="fas ${CATEGORY_ICONS[examState.category]}"></i> ${CATEGORY_LABELS[examState.category]}`;
+                `<i class="fas ${icon}"></i> ${catLabel}`;
         }
 
-        // Option click
         document.getElementById('optionsContainer').addEventListener('click', function(e) {
             const optionDiv = e.target.closest('.option-item');
             if (!optionDiv) return;
@@ -1830,6 +2338,7 @@
                 alert('Please click "Start Work" to begin the exam.');
                 return;
             }
+            if (optionDiv.style.display === 'none') return;
 
             const qs = getCategoryQuestions();
             if (qs.length === 0) return;
@@ -1842,7 +2351,6 @@
             examState.answers[examState.currentIndex] = index;
         });
 
-        // Flag button
         document.getElementById('flagBtn').addEventListener('click', function() {
             if (examState.submitted) return;
             if (!examState.started) {
@@ -1853,7 +2361,6 @@
             renderExamQuestion();
         });
 
-        // Navigation
         document.getElementById('prevBtn').addEventListener('click', function() {
             if (examState.currentIndex > 0) {
                 examState.currentIndex--;
@@ -1945,7 +2452,6 @@
             const score = Math.round((correct / total) * 100);
             const passed = score >= 60;
 
-            // Save result
             studentResults.push({
                 username: examState.username,
                 score: score,
@@ -2023,7 +2529,7 @@
             document.getElementById('screenBlurFinalOverlay').classList.remove('show');
         }
 
-        // Right-click protection
+        // Right-click protection (enforced but not shown in rules)
         document.getElementById('examContainer').addEventListener('contextmenu', function(e) {
             if (!isExamActive) return;
             e.preventDefault();
@@ -2143,10 +2649,61 @@
         });
 
         // ==========================================
+        // SCREEN SHARING PROTECTION
+        // ==========================================
+        // Block screen sharing attempts
+        if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
+            const originalGetDisplayMedia = navigator.mediaDevices.getDisplayMedia;
+            navigator.mediaDevices.getDisplayMedia = function(constraints) {
+                const exam = document.getElementById('examContainer');
+                if (exam.style.display === 'block' && isExamActive) {
+                    alert('❌ Screen sharing is not allowed during the exam!');
+                    return Promise.reject(new Error('Screen sharing blocked during exam'));
+                }
+                return originalGetDisplayMedia.call(this, constraints);
+            };
+        }
+
+        // Block clipboard access
+        document.addEventListener('copy', function(e) {
+            const exam = document.getElementById('examContainer');
+            if (exam.style.display === 'block' && isExamActive) {
+                e.preventDefault();
+                warningCount++;
+                if (warningCount >= 3) {
+                    showCopyWarning('⚠️ Multiple violations detected. Your exam will be submitted.');
+                    setTimeout(submitExam, 3000);
+                } else {
+                    showCopyWarning('⚠️ Copying is not allowed during the exam.');
+                }
+                return false;
+            }
+        });
+
+        document.addEventListener('paste', function(e) {
+            const exam = document.getElementById('examContainer');
+            if (exam.style.display === 'block' && isExamActive) {
+                e.preventDefault();
+                warningCount++;
+                if (warningCount >= 3) {
+                    showCopyWarning('⚠️ Multiple violations detected. Your exam will be submitted.');
+                    setTimeout(submitExam, 3000);
+                } else {
+                    showCopyWarning('⚠️ Pasting is not allowed during the exam.');
+                }
+                return false;
+            }
+        });
+
+        // ==========================================
         // INIT
         // ==========================================
+        renderCategoryList();
+        renderAdminCategories();
+        renderAdminQuestions(categories[0] || 'medical');
         updateStats();
         renderStudentTable();
+        updateTimeDisplay();
     </script>
 
 </body>
